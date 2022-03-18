@@ -20,7 +20,11 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       inject: [ConfigService]
     })
   ],
-  providers: [AuthService, LocalStrategy, JwtStrategy],
+  providers: [
+    AuthService, 
+    LocalStrategy, 
+    JwtStrategy
+  ],
   controllers: [AuthController]
 })
 export class AuthModule {}
