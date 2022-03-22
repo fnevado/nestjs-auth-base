@@ -16,7 +16,7 @@ $ npm install
 
 First of all, you have to set up the proeject using a .env file on root directory with thw following structure:
 ```bash
-JWT_SECRET = <secret used for jwt sign>
+JWT_SECRET = <secret used for jwt signing>
 
 DATABASE_HOST = <database host>
 DATABASE_PORT = <database port>
