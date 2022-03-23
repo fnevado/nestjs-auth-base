@@ -6,6 +6,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
+import { RolesGuard } from './roles.guard';
+import { Role } from './users/role.entity';
 import { User } from './users/user.entity';
 import { UsersModule } from './users/users.module';
 
@@ -23,7 +25,7 @@ import { UsersModule } from './users/users.module';
         username: configService.get<string>('DATABASE_USER'),
         password: configService.get<string>('DATABASE_PASS'),
         database: configService.get<string>('DATABASE_NAME'),
-        entities: [User],
+        entities: [User, Role],
         synchronize: true // disable on production mode
       }),
       inject: [ConfigService]
@@ -35,6 +37,10 @@ import { UsersModule } from './users/users.module';
     {
       provide: APP_GUARD,
       useClass: JwtAuthGuard,
+    },
+    {
+      provide: APP_GUARD,
+      useClass: RolesGuard
     }
   ],
 })

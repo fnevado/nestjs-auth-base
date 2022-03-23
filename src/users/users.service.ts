@@ -19,7 +19,8 @@ export class UsersService {
         return this.usersRepository.findOne({
             where: {
                 'username': username
-            }
+            },
+            relations: ['roles']
         });
     }
 
@@ -31,6 +32,7 @@ export class UsersService {
 
         user = { 
             id: undefined,
+            roles: [],
             firstName: data.firstName,
             lastName: data.lastName,
             password: passwordHash,
