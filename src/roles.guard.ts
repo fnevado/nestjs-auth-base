@@ -31,7 +31,6 @@ export class RolesGuard implements CanActivate {
         var result = false;
         
         const user = await this.userService.findOne(username);
-        console.log(user.roles);
 
         for (let index = 0; index < roles.length; index++) {
             const roleDesc = roles[index];
